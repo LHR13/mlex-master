@@ -1,0 +1,23 @@
+from sklearn.decomposition import PCA
+import numpy as np
+import pandas as pd
+from pyecharts.charts import Line
+
+data = pd.read_csv("C:\\Users\\李昊儒\\Desktop\\预处理  标准化，可视化，PCA实验数据\\5 iris.csv")
+data.columns = ['Sepal length', 'Sepal width', 'Petal length', 'petal width', 'Species']
+
+line = Line()
+line.add_xaxis(xaxis_data=[i for i in range(0, 150)])
+line.add_yaxis(y_axis=data["Sepal length"], series_name='Sepal length')
+line.add_yaxis(y_axis=data["Petal length"], series_name='Petal length')
+line.render('render5.html')
+
+pca = PCA(n_components=2)
+X = pca.fit_transform(data.iloc[:,:-1].values)
+pos = pd.DataFrame()
+pos['X'] = X[:, 0]
+pos['Y'] = X[:, 1]
+pos['Species'] = data['Species']
+print(pos)
+
+

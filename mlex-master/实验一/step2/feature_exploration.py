@@ -63,8 +63,8 @@ fig, axes = plt.subplots(1, 2)
 sns.boxplot(x="西安", data=df_data, ax=axes[0])
 sns.boxplot(x="北京", data=df_data2, ax=axes[1])
 
-fig, axes = plt.subplots(1, 2)
-sns.violinplot(x="西安", data=df_data, ax=axes[0])
-sns.violinplot(x="北京", data=df_data2, ax=axes[1])
+# fig, axes = plt.subplots(1, 2)
+# sns.violinplot(x="西安", data=df_data, ax=axes[0])
+# sns.violinplot(x="北京", data=df_data2, ax=axes[1])
 
 plt.show()
