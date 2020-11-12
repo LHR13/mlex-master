@@ -37,15 +37,16 @@ print(data.dtypes)  # 查看各列数据类型
 
 
 def normal_distribution_exception_handling(data):
-    data = np.array(data)
-    upper = data.mean() + 3 * data.std()
-    lower = data.mean() - 3 * data.std()
+    # data = np.array(data)
+    upper = np.mean(data) + 2 * np.std(data)
+    lower = np.mean(data) - 2 * np.std(data)
     except_data = []
     for i in data:
         if (upper < i) | (lower > i):
             except_data.append(i)
     print(except_data)
 
-b = [0,1,2,3,55555,87888845345345345345345]
+b = [0,1,2,3,55555,87888]
 print(data['actor_2_facebook_likes'].head(15))
-normal_distribution_exception_handling(b)
+normal_distribution_exception_handling(data['actor_2_facebook_likes'].head(15))
+
